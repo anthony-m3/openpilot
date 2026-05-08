@@ -322,6 +322,9 @@ static safety_config mazda_init(uint16_t param) {
       SET_TX_MSGS(MAZDA_TI_RI_TX_MSGS, ret);
     } else if (radar_interceptor) {
       SET_TX_MSGS(MAZDA_RI_TX_MSGS, ret);
+    } else if (torque_interceptor && no_mrcc) {
+      SET_RX_CHECKS(mazda_ti_no_mrcc_rx_checks, ret);
+      SET_TX_MSGS(MAZDA_TI_TX_MSGS, ret);
     } else if (torque_interceptor) {
       SET_RX_CHECKS(mazda_ti_rx_checks, ret);
       SET_TX_MSGS(MAZDA_TI_TX_MSGS, ret);
